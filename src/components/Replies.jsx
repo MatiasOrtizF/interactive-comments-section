@@ -3,10 +3,14 @@ import { SvgXml } from 'react-native-svg';
 import replyIcon from '../../assets/icons/reply-icon.js'
 import minusIcon from '../../assets/icons/minus-icon';
 import plusIcon from '../../assets/icons/plus-icon';
+import deleteIcon from '../../assets/icons/delete-icon.js';
+import editIcon from '../../assets/icons/edit-icon.js';
 import styles from './styled';
 import imageProfile from './image-profile.js'
+import { useComments } from '../hooks/commentsContext';
 
 export default function Replies(replie) {
+    const {userData,deleteComentarry,editComentarry} = useComments();
 
     const replicar = () => {
         console.log(replicar)
@@ -17,6 +21,11 @@ export default function Replies(replie) {
                 <View style={{flexDirection:"row" , alignItems:"center"}}>
                     <Image style={{width:40 , height:40}} source={imageProfile[replie.user.username]}/>
                     <Text style={{marginHorizontal:10, fontWeight:"700"}}>{replie.user.username}</Text>
+                    {comment.user.username == userData.username ?
+                        <Text style={{backgroundColor:"blue", color:"white", paddingHorizontal:5, marginRight:10}}>you</Text>
+                        :
+                        null
+                    }
                     <Text>{replie.createdAt}</Text>
                 </View>
                 <View style={{marginVertical:10}}>
