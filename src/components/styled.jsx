@@ -7,6 +7,7 @@ const styles = StyleSheet.create({
         padding: 15,
         borderRadius: 7
     },
+    send: {width:"20%", alignSelf:"flex-end" , paddingHorizontal:10, paddingVertical:5, borderRadius:7},
     boxReplie: {
         backgroundColor:"white",
         marginVertical:10,
@@ -25,6 +26,13 @@ const styles = StyleSheet.create({
     },
     score: {
         backgroundColor:"#E5EBF1", 
+        flexDirection:"row", 
+        alignItems:"center", 
+        padding:7,
+        borderRadius:7
+    },
+    scoreActive: {
+        backgroundColor:"#6B9ECF", 
         flexDirection:"row", 
         alignItems:"center", 
         padding:7,
