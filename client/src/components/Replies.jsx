@@ -1,16 +1,16 @@
-import { Text, View , Image, TouchableOpacity } from 'react-native';
+import { Text, View, Image, TouchableOpacity } from 'react-native';
 import { SvgXml } from 'react-native-svg';
 import replyIcon from '../../assets/icons/reply-icon.js'
 import minusIcon from '../../assets/icons/minus-icon';
 import plusIcon from '../../assets/icons/plus-icon';
 import deleteIcon from '../../assets/icons/delete-icon.js';
 import editIcon from '../../assets/icons/edit-icon.js';
-import styles from './styled';
+import styles from './Styles.jsx';
 import imageProfile from './image-profile.js'
 import { useComments } from '../hooks/commentsContext';
 
 export default function Replies(replie) {
-    const {commentsData,deleteComentarry , deleteReplie , editComentarry,replyComentary, userData , plusReply , minusReply} = useComments();
+    const {commentsData,deleteComentarry , deleteReplie , editComentarry,replyComentary, userData , plusReply , minusReply , handleButtonReplayPress} = useComments();
 
     const replicar = () => {
         console.log(replicar)
@@ -54,7 +54,7 @@ export default function Replies(replie) {
                 </TouchableOpacity>
             </View>
             :
-            <TouchableOpacity style={{flexDirection:"row", alignItems:"center"}} onPress={()=> replyComentary(replie.id)}>
+            <TouchableOpacity style={{flexDirection:"row", alignItems:"center"}} onPress={() =>handleButtonReplayPress(replie.id)}>
                 <SvgXml xml={replyIcon} width={13} height={13}></SvgXml>
                 <Text style={{marginLeft:5, color:"blue"}}>Replay</Text>
             </TouchableOpacity>

@@ -1,12 +1,12 @@
 import React, { useRef } from 'react';
-import {  Text, View , Image, TouchableOpacity, TextInput } from 'react-native';
+import { Text, View, Image, TouchableOpacity, TextInput } from 'react-native';
 import { SvgXml } from 'react-native-svg';
 import replyIcon from '../../assets/icons/reply-icon.js'
 import minusIcon from '../../assets/icons/minus-icon.js';
 import plusIcon from '../../assets/icons/plus-icon.js';
 import deleteIcon from '../../assets/icons/delete-icon.js';
 import editIcon from '../../assets/icons/edit-icon.js';
-import styles from './styled.jsx';
+import styles from './Styles.jsx';
 import Replies from './Replies.jsx';
 import imageProfile from './image-profile.js'
 import { useComments } from '../hooks/commentsContext.js';

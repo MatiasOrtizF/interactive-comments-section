@@ -47,7 +47,7 @@ export function CommentProvider({children}) {
                     {
                         "id": newId,
                         "content": commentaryNew,
-                        "createdAt": "1 month ago",
+                        "createdAt": "1 second ago",
                         "score": 0,
                         "like": false,
                         "user": {
@@ -82,28 +82,59 @@ export function CommentProvider({children}) {
     } 
 
     const replyComentary = (input) => {
-        const commentNumber = commentsData.findIndex(item=>item.id==idReply);
-        const newComments = [...commentsData]
-        //newComments[commentNumber].score = newComments[commentNumber].score+1
-        //newComments[commentNumber].like = true
-        //setCommentsData(newComments)
-        const newReply = {
-            "id": 7,
-            "content": input,
-            "createdAt": "1 second",
-            "score": 0,
-            "like": false,
-            "replyingTo": newComments[commentNumber].user.username,
-            "user": {
-            "image": { 
-                "png": "../../assets/avatars/image-juliusomo.png",
-                "webp": "../../assets/avatars/image-juliusomo.webp"
-            },
-            "username": "juliusomo"
+        if(commentaryNew.trim())  {
+            setNewId(newId+1)
+            const commentNumber = commentsData.findIndex(item=>item.id==idReply);
+            const newComments = [...commentsData]
+            //newComments[commentNumber].score = newComments[commentNumber].score+1
+            //newComments[commentNumber].like = true
+            //setCommentsData(newComments)
+            const newReply = {
+                "id": newId,
+                "content": input,
+                "createdAt": "1 second ago",
+                "score": 0,
+                "like": false,
+                "replyingTo": newComments[commentNumber].user.username,
+                "user": {
+                "image": { 
+                    "png": "../../assets/avatars/image-juliusomo.png",
+                    "webp": "../../assets/avatars/image-juliusomo.webp"
+                },
+                "username": "juliusomo"
+                }
             }
+            newComments[commentNumber].replies = [...newComments[commentNumber].replies , newReply]
+            setCommentsData(newComments)
         }
-        newComments[commentNumber].replies = [...newComments[commentNumber].replies , newReply]
-        setCommentsData(newComments)
+    }
+
+    const replyReply = (input) => {
+        if(commentaryNew.trim())  {
+            setNewId(newId+1)
+            const commentNumber = commentsData.findIndex(item=>item.id==idReply);
+            const newComments = [...commentsData]
+            //newComments[commentNumber].score = newComments[commentNumber].score+1
+            //newComments[commentNumber].like = true
+            //setCommentsData(newComments)
+            const newReply = {
+                "id": newId,
+                "content": input,
+                "createdAt": "1 second ago",
+                "score": 0,
+                "like": false,
+                "replyingTo": newComments[commentNumber].user.username,
+                "user": {
+                "image": { 
+                    "png": "../../assets/avatars/image-juliusomo.png",
+                    "webp": "../../assets/avatars/image-juliusomo.webp"
+                },
+                "username": "juliusomo"
+                }
+            }
+            newComments[commentNumber].replies = [...newComments[commentNumber].replies , newReply]
+            setCommentsData(newComments)
+        }
     }
 
     const plus = (id) => {
@@ -219,6 +250,7 @@ export function CommentProvider({children}) {
             dataloaded,
             addComment,
             replyComentary,
+            replyReply,
             minus,
             plus,
             plusReply,

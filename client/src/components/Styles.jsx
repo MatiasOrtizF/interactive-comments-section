@@ -7,7 +7,13 @@ const styles = StyleSheet.create({
         padding: 15,
         borderRadius: 7
     },
-    send: {width:"20%", alignSelf:"flex-end" , paddingHorizontal:10, paddingVertical:5, borderRadius:7},
+    send: {
+        width:"20%", 
+        alignSelf:"flex-end", 
+        paddingHorizontal:10, 
+        paddingVertical:5, 
+        borderRadius:7
+    },
     boxReplie: {
         backgroundColor:"white",
         marginVertical:10,
