@@ -13,10 +13,10 @@ public class ReplyLike {
     private Long id;
 
     @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
-    @Column(name = "user_id")
+    @JoinColumn(name = "user_id")
     private User user;
 
     @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
-    @Column(name= "reply_id")
+    @JoinColumn(name= "reply_id")
     private Reply reply;
 }

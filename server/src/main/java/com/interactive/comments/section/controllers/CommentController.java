@@ -1,5 +1,6 @@
 package com.interactive.comments.section.controllers;
 
+import com.interactive.comments.section.exceptions.ResourceNotFoundException;
 import com.interactive.comments.section.exceptions.UnauthorizedException;
 import com.interactive.comments.section.models.Comment;
 import com.interactive.comments.section.repositories.CommentRepository;
@@ -30,6 +31,11 @@ public class CommentController {
         } catch (UnauthorizedException e) {
             return ResponseEntity.badRequest().body("Unauthorized: invalid token");
         }
+    }
+
+    @GetMapping("{id}")
+    public Comment getComment(@PathVariable Long id) {
+       return commentRepository.findById(id).orElseThrow(()-> new ResourceNotFoundException("The user is not found"));
     }
 
     @PostMapping

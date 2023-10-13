@@ -25,6 +25,6 @@ public class Comment {
     private Integer score;
 
     @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
-    @Column(name = "user_id")
+    @JoinColumn(name = "user_id")
     private User user;
 }

@@ -14,10 +14,10 @@ public class CommentLike {
     private Long id;
 
     @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
-    @Column(name = "user_id")
+    @JoinColumn(name = "user_id")
     private User user;
 
     @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
-    @Column(name= "comment_id")
+    @JoinColumn(name= "comment_id")
     private Comment comment;
 }

@@ -15,7 +15,7 @@ public class User {
     @Column(name = "id")
     private Long id;
 
-    @Size(min = 3, max = 10)
+    @Size(min = 3, max = 15)
     @NotBlank(message = "name is mandatory")
     @Column(name = "user_name", unique = true)
     private String userName;

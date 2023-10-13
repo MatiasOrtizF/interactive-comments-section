@@ -15,7 +15,7 @@ public class Reply {
     private Long id;
 
     @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
-    @Column(name = "comment_id")
+    @JoinColumn(name = "comment_id")
     private Comment comment;
 
     @Column(name = "content")
@@ -28,6 +28,6 @@ public class Reply {
     private Integer score;
 
     @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
-    @Column(name = "user_id")
+    @JoinColumn(name = "user_id")
     private User user;
 }
